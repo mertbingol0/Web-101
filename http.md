@@ -27,6 +27,7 @@ Temel olarak bir HTTP header'i 4 ana kısımdan oluşur. Bu kısımların açık
 <p>
 
 </p>
+<hr>
 
 ### HTTP Status Codes:
 <li>1xx: "Request henüz işlenmeye devam ediyor" gibi bir tanım yapılabilir.</li>
@@ -37,11 +38,11 @@ Temel olarak bir HTTP header'i 4 ana kısımdan oluşur. Bu kısımların açık
 
 <br>
 <p>Tum HTTP durum kodlarinin listesi: https://tr.wikipedia.org/wiki/HTTP_durum_kodlar%C4%B1</p>
+<hr>
 
 ### HTTP Request Methods
 
 ### GET
-<hr>
 <p>GET methodu, server'dan bir veri isteğinde bulunduğumuzda kullanılan bir request methodudur. Örneğin herhangi bir sitede bir sayfaya tıklarsanız server'a "bana bu sayfayı getir" isteğinde bulunduğunuzdan dolayı HTTP protokolü GET methodunu kullanacaktır. Yani GET methodu server'dan herhangi bir veri talebinde bulunduğumuzda kullanılan bir methoddur.Ornek olarak asagida bloguma yapilan bir istegin headerini koydum. Bu requestte serverdan bir .html dosyasini bana sunmasini istedim bu sebeple GET methodu kullanildi.</p>
 <img src="https://github.com/mertbingol0/Web-TEchLEarn/blob/main/github'a%20koy%20baba.png"></img>
 <hr>
