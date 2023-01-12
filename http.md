@@ -1,49 +1,49 @@
-## HTTP (Hyper Text Transfer Protokol) Nedir?</h2>
+## HTTP (Hyper Text Transfer Protokol)</h2>
 			
 <p>
-       HTTP, client tarafindan yapilan requesti, serverin anlayabilecegi sekilde parse edip, 
-        duzenleyip ve paketleyip istenilen islemi server'a iletebilmemizi saglayan bir protokoldur. 
-        Protkol ise kisaca bir iletisimdir diyebiliriz.
-        Ornegin, benim suanda sizlere buradan bir seyler anlatiyor olusuma bir iletisim yani protokol diyebiliriz.
-        Sizler de burada anlattiklarimi farkinda olmadan parse edip (parcalara ayirip) kavrayip, anliyorsunuz.
-        Yani sizlerle "konusma" protokolunu kullanarak iletisimde bulunuyorum diyebiliriz.
-        Web servisleri de bu protokolu kullanarak aralarinda iletisimde bulunurlar. Peki bu iletisimin teknik detaylari nelerdir?
+       HTTP, client tarafından yapılan requesti, serverin anlayabileceği şekilde parse edip, düzenleyip ve paketleyip istenilen işlemi server'a iletebilmemizi sağlayan bir protokoldur. Protokol, kısaca bir iletişimdir diyebiliriz. Örneğin, benim şuanda sizlere buradan bir şeyler anlatıyor olusuma bir iletişim yani protokol diyebiliriz. Sizler de burada anlattıklarımı farkında olmadan parse edip (parçalara ayırarak) kavrayıp, anlıyorsunuz. Yani sizlerle "konuşma" protokolunu kullanarak iletişimde bulunuyorum diyebiliriz. Web servisleri de bu protokolu kullanarak aralarında iletişimde bulunurlar. Peki bu iletişimin teknik detayları nelerdir?
 </p
 
 			
-<p>HTTP protokolu, 
-talep edilen istegin parse isleminin sonucunda olusturulan pakettir demistik. Burada ise bu parsing islemine deginecegiz,
-ilk olarak parse edilen verilere bakalim.</p>
-<p>HTTP Hader'i Request bilgileri'nin bulundugu kisimdir. Bu bilgi sayesinde client,
-   nereye hangi metodu kullanarak request atilacagi bilgisini web servisine iletir ve arka tarafta calisan web servisi, bu bilgi uzerine islemlerini yapar ve request
-sonucunu client'a doner. Bu islemede HTTP Response denir.</p>
+<p>HTTP protokolu, talep edilen isteğin parse işleminin sonucunda oluşturulan pakettir demiştik. Burada ise bu parsing işlemine değineceğiz. İlk olarak parse edilen verilere bakalım.</p>
+<p>HTTP header, request bilgilerinin bulunduğu kısımdır. Bu bilgi sayesinde client, nereye hangi metodu kullanarak request atılacağı bilgisini web servisine iletir ve arka tarafta çalışan web servisi, bu bilgi üzerine işlemlerini yapar ve request sonucunu client'a döner. Bu işleme de HTTP response denir.</p>
 
-<p>Ornek bir HTTP header yapisi su sekildedir: (Tabi programcinin yazis sekline gore bir cok ek bilgi daha olabilir, lakin suan da soz ettigim kisimlar kesinlikle bir http requesti icerisinde olmasi gereken kisimlardir.</p>
+<p>Ornek bir HTTP header yapısı şu şekildedir: Tabii programcının yazı şekline göre birçok ek bilgi daha olabilir, lakin şuan da söz ettiğim kısımlar kesinlikle bir http requesti içerisinde olması gereken kısımlardır.</p>
 			
-```
+<pre>
 GET /index.html HTTP/1.1
 Host: mertbingol.online
 Accept: text/html
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36
-```
-Temel olarak bir HTTP Header'i 4 ana kisimdan olusur. Bu kisimlarin aciklamalarini asagida yazdim:
+</pre>
+Temel olarak bir HTTP header'i 4 ana kısımdan oluşur. Bu kısımların açıklamalarını aşağıda yazdım:
 | Section | Description |
 | --- | --- |
-| Request (GET) | Bu kisim HTTP headeri'nin ilk satiridir ve burada nereye, ne sekilde request atilacagi bilgisi bulunur. Ornegin yukarida verdigim ornek de index.html'e bir GET requesti atilmis, (Bu Request methodlarina birazdan deginecegim) |
-| Host: | Bu kisim, isteğin hangi sunucuya yönlendirileceğini belirtir. Yani domain'in karsilik geldigi ip adresini ogrenir. HTTP'nin bu bilgiye ihtiyaci vardir, cunku baska turlu ilgili web servisi ile iletisimde bulunamaz. |
-| Accept | Bu kisim, requestimizin hangi türde veri talep ettigini belirtir. Örneğin, "application/json" veya "text/html" gibi. (Request yapilan, istenen veririnin tipi) |
-| User-Agent: | Bu kisim, requestin yapildigi (uretildigi) browser, cihaz adi ve/veya sürümünü belirtir. Kisaca Request'in uretildigi cihaz hakkinda bir takim verilerin bulundugu kisimdir. |
+| Request (GET) | Bu kısım HTTP header'inin ilk satırıdır ve burada nereye, ne şekilde request atılacağı bilgisi bulunur. Örneğin yukarıda verdiğim örnekte index.html'e bir GET requesti atılmış (Bu request metodlarına birazdan değineceğim).|
+| Host: | Bu kısım, isteğin hangi sunucuya yönlendirileceğini belirtir. Yani domain'in karşılık geldiği IP adresini öğrenir. HTTP'nin bu bilgiye ihtiyacı vardır çünkü başka türlü ilgili web servisi ile iletişimde bulunamaz. |
+| Accept | Bu kısım, requestimizin hangi türde veri talep ettiğini belirtir. Örneğin, "application/json" veya "text/html" gibi. (Request yapılan, istenen verinin tipi) |
+| User-Agent: | Bu kısım, requestin yapıldığı (üretildiği) browser, cihaz adı ve/veya sürümünü belirtir. Kısaca request'in üretildiği cihaz hakkında bir takım verilerin bulunduğu kısımdır. |
 
 <p>
 
 </p>
 
 ### HTTP Status Codes:
-<li>1xx: "Request henuz islenmeye devam." ediyor gibi bir tanim yapilabilir.</li>
-<li>2xx: OK durumu, yani http protokolunun basarili bir sekilde request atilabildigini ifade eder. (requestin responseun'da bulunur). Ornek: <code>HTTP/1.1 200 OK</code> </li>
-<li>3xx: Yoneldirme durumudur, request attiginiz adres farkli bir adresi temsil ediyor olabilir. Bu gibi durumlarda "yonlendime" dedigimiz durum yasanir ve requestiniz yonlendirilen adrese gider. (Ornegin, onebyte.io domaini 1byte.io'a yonlendirilmis.)</li>
-<li>4xx: Requestinizde bir sorun oldugunda bu durum kodu ile karsilasirsiniz. Ornegin, bir sayfaya erisemediginizde "404 error" hatasi ile karsilarisiniz. Aslinda bu bir durum kodudur ve genelde client'in internet problemlerinde bu durumla karilasilir.</li>
-<li>5xx: Bu ise 4xx error'dan farkli olarak, requestiniz dogru olsa dahi server tarafinda bir sorun oldugunda karsilasacaginiz bir HTTP durumudur. </li>
+<li>1xx: "Request henüz işlenmeye devam ediyor" gibi bir tanım yapılabilir.</li>
+<li>2xx: OK durumu, yani http protokolünün başarılı bir şekilde request atılabildiğini ifade eder. (requestin response'unda bulunur). Örnek: <code>HTTP/1.1 200 OK</code></li>
+<li>3xx: Yönlendirme durumudur, request attığınız adres farklı bir adresi temsil ediyor olabilir. Bu gibi durumlarda "yönlendirme" dediğimiz durum yaşanır ve requestiniz yönlendirilen adrese gider. (Örneğin, onebyte.io domaini 1byte.io'ya yönlendirilmiş.)</li>
+<li>4xx: Requestinizde bir sorun olduğunda bu durum kodu ile karşılaşırsınız. Örneğin, bir sayfaya erişemediğinizde "404 error" hatası ile karşılaşırsınız. Aslında bu bir durum kodudur ve genelde client'in internet problemlerinde bu durumla karşılaşılır.</li>
+<li>5xx: Bu ise 4xx error'dan farklı olarak, requestiniz doğru olsa dahi server tarafında bir sorun olduğunda karşılaşacağınız bir HTTP durumudur.</li>
+
 <br>
 <p>Tum HTTP durum kodlarinin listesi: https://tr.wikipedia.org/wiki/HTTP_durum_kodlar%C4%B1</p>
 
+### HTTP Request Methods
+
+### GET
+<hr>
+<p>GET methodu, server'dan bir veri isteğinde bulunduğumuzda kullanılan bir request methodudur. Örneğin herhangi bir sitede bir sayfaya tıklarsanız server'a "bana bu sayfayı getir" isteğinde bulunduğunuzdan dolayı HTTP protokolü GET methodunu kullanacaktır. Yani GET methodu server'dan herhangi bir veri talebinde bulunduğumuzda kullanılan bir methoddur.Ornek olarak asagida bloguma yapilan bir istegin headerini koydum. Bu requestte serverdan bir .html dosyasini bana sunmasini istedim bu sebeple GET methodu kullanildi.</p>
+<img src="https://github.com/mertbingol0/Web-TEchLEarn/blob/main/github'a%20koy%20baba.png"></img>
+<hr>
+
+### POST
