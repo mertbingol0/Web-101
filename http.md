@@ -47,7 +47,7 @@ Temel olarak bir HTTP header'i 4 ana kısımdan oluşur. Bu kısımların açık
 <img src="https://github.com/mertbingol0/Web-TEchLEarn/blob/main/github'a%20koy%20baba.png"></img>
 
 ### GET (Server)
-Simdi yukarida verdigim ornekteki requestin server tarafinda nasil islendigine bakalim. Orneklerimi herkesin anlayabilecegi bir sekilde olmasi acisindan ve Python'a olan hakimligimden dolayi Python programlama dili uzerinde Flask kutuphanesini kullanarak yapacagim.
+Şimdi yukarıda verdiğim örnekteki request'in server tarafında nasıl işlendiğine bakalım. Örneklerimi herkesin anlayabileceği bir şekilde olması açısından ve Python'a olan hakimliğimden dolayı, Python programlama dili üzerinde Flask kütüphanesini kullanarak yapacağım.
 
 ```python
 from flask import Flask, request, render_template
@@ -62,18 +62,18 @@ def example_request():
 if __name__ == '__main__':
     app.run(debug=True)
 ```
-Burada ```@app.route()``` yardimi ile url uzerinde "/blog" sayfasina bir request atildiginda kullaniciyi "/blog" sayfasina yonlendirmesini soyluyoruz. Bu isleme endpoint denir. Ardindan ```methods = ['GET']``` kisminda ise bu endpointimize yapilan request methodunun sadece GET olmasi gerektigini soyluyoruz. Boylece bu sayfaya sadece GET requesti atildiginda kaale alacak ve islemlerini yapacak. Tabii eger istersek bir sayfaya iki farkli request methodu atilabilmesini saglayabiliriz. 
+Burada @app.route() yardımı ile URL üzerinde "/blog" sayfasına bir request atıldığında kullanıcıyı "/blog" sayfasına yönlendirmesini söylüyoruz. Bu işleme endpoint denir. Ardından methods = ['GET'] kısmında ise bu endpointimize yapılan request methodunun sadece GET olması gerektiğini söylüyoruz. Böylece bu sayfaya sadece GET requesti atıldığında kabul edecek ve işlemlerini yapacak. Tabii eğer istersek bir sayfaya iki farklı request methodu atılabilmesini sağlayabiliriz.
 
-Ornek:
+Örnek:
 
 ```python
 @app.route('/blog', methods = ['GET', 'POST'])
 ```
-Devam edelim. Kisaca client tarafindan gelen request methodu GET ise ```example_request()``` fonksyonumuz calistirilacak ve ```render_template('blog.html')``` ile bilrikte "blog.html" dosyasi "/blog" sayfasina requestte bulunan client'a sunulacak.
+Devam edelim. Kısaca client tarafından gelen request methodu GET ise example_request() fonksiyonumuz çalıştırılacak ve render_template('blog.html') ile birlikte "blog.html" dosyası "/blog" sayfasına requestte bulunan client'a sunulacak.
 
-Not: Eger developer bir sayfaya sadece post requesti atilabilmesini saglarsa ve biz o sayfaya bir GET requesti atarsak ```Method Not Allowed``` hatasi ile karsilasiriz. Ve hemen altinda da ```The method is not allowed for the requested URL.``` boyle bir bildiri yazar. (Bu adres icin bu method'a izin verilmiyor gibi cevirilebilir)
+Not: Eğer developer bir sayfaya sadece post requesti atılabilmesini sağlarsa ve biz o sayfaya bir GET requesti atarsak Method Not Allowed hatası ile karşılaşırız. Ve hemen altında da The method is not allowed for the requested URL. böyle bir bildiri yazar. (Bu adres için bu method'a izin verilmiyor gibi çevirilebilir)
 
-<img>
+<img src="https://github.com/mertbingol0/Web-TEchLEarn/blob/main/Screenshot%20from%202023-01-14%2001-18-01.png"></img>
 
 
 
