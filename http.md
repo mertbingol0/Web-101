@@ -71,7 +71,7 @@ Burada @app.route() yardımı ile URL üzerinde "/blog" sayfasına bir request a
 ```
 Devam edelim. Kısaca client tarafından gelen request methodu GET ise example_request() fonksiyonumuz çalıştırılacak ve render_template('blog.html') ile birlikte "blog.html" dosyası "/blog" sayfasına requestte bulunan client'a sunulacak.
 
-Not: Eğer developer bir sayfaya sadece post requesti atılabilmesini sağlarsa ve biz o sayfaya bir GET requesti atarsak Method Not Allowed hatası ile karşılaşırız. Ve hemen altında da The method is not allowed for the requested URL. böyle bir bildiri yazar. (Bu adres için bu method'a izin verilmiyor gibi çevirilebilir)
+Not: Eğer developer bir sayfaya sadece post requesti atılabilmesini sağlarsa ve biz o sayfaya bir GET requesti atarsak "Method Not Allowed" hatası ile karşılaşırız. Ve hemen altında da "The method is not allowed for the requested URL." böyle bir bildiri yazar. (Bu adres için bu method'a izin verilmiyor gibi çevirilebilir)
 
 <img src="https://github.com/mertbingol0/Web-TEchLEarn/blob/main/Screenshot%20from%202023-01-14%2001-18-01.png"></img>
 
