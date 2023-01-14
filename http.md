@@ -75,5 +75,6 @@ Not: Eğer developer bir sayfaya sadece post requesti atılabilmesini sağlarsa 
 
 <img src="https://github.com/mertbingol0/Web-TEchLEarn/blob/main/Screenshot%20from%202023-01-14%2001-18-01.png"></img>
 
+#### POST on Client Side
 
-
+POST, request'i server'a bir veri gondermek istedigimizde kullandigimiz request methodudur. Ornegin bir siteye fotoraf yuklemek istersek bu fotoraf yukleme islemi POST request'i ile yapilir. Sizler fotorafinizi yuklediginizde server'a "Sana bir fotoraf gonderiyorum" diyorsunuz ve server'da o fotorafinizi alip gereken islemi gerceklestiriyor. Ornegin verdiginiz fotoraf bir profil fotorafi olabilir ve bu profil fotorafini  profilinize eklmek icin bi takim islemler gerceklestirir. Tabikide post mehodu sadece fotoraf yukleme gibi basit isler haricinde cok buyuk seyler icinde kullanilabiliyor
