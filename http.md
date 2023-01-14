@@ -42,11 +42,11 @@ Temel olarak bir HTTP header'i 4 ana kısımdan oluşur. Bu kısımların açık
 
 ### HTTP Request Methods
 
-### GET (Client)
+#### GET on Client Side
 <p>GET methodu, server'dan bir veri isteğinde bulunduğumuzda kullanılan bir request methodudur. Örneğin herhangi bir sitede bir sayfaya tıklarsanız server'a "bana bu sayfayı getir" isteğinde bulunduğunuzdan dolayı HTTP protokolü GET methodunu kullanacaktır. Yani GET methodu server'dan herhangi bir veri talebinde bulunduğumuzda kullanılan bir methoddur. Ornek olarak asagida bloguma yapilan bir istegin headerini koydum. Bu requestte serverdan bir .html dosyasini bana sunmasini istedim bu sebeple GET methodu kullanildi.</p>
 <img src="https://github.com/mertbingol0/Web-TEchLEarn/blob/main/github'a%20koy%20baba.png"></img>
 
-### GET (Server)
+#### GET on Server Side
 Şimdi yukarıda verdiğim örnekteki request'in server tarafında nasıl işlendiğine bakalım. Örneklerimi herkesin anlayabileceği bir şekilde olması açısından ve Python'a olan hakimliğimden dolayı, Python programlama dili üzerinde Flask kütüphanesini kullanarak yapacağım.
 
 ```python
@@ -62,14 +62,14 @@ def example_request():
 if __name__ == '__main__':
     app.run(debug=True)
 ```
-Burada @app.route() yardımı ile URL üzerinde "/blog" sayfasına bir request atıldığında kullanıcıyı "/blog" sayfasına yönlendirmesini söylüyoruz. Bu işleme endpoint denir. Ardından methods = ['GET'] kısmında ise bu endpointimize yapılan request methodunun sadece GET olması gerektiğini söylüyoruz. Böylece bu sayfaya sadece GET requesti atıldığında kabul edecek ve işlemlerini yapacak. Tabii eğer istersek bir sayfaya iki farklı request methodu atılabilmesini sağlayabiliriz.
+Burada ```@app.route()``` yardımı ile URL üzerinde "/blog" sayfasına bir request atıldığında kullanıcıyı "/blog" sayfasına yönlendirmesini söylüyoruz. Bu işleme endpoint denir. Ardından ```methods = ['GET']``` kısmında ise bu endpointimize yapılan request methodunun sadece GET olması gerektiğini söylüyoruz. Böylece bu sayfaya sadece GET requesti atıldığında kabul edecek ve işlemlerini yapacak. Tabii eğer istersek bir sayfaya iki farklı request methodu atılabilmesini sağlayabiliriz.
 
 Örnek:
 
 ```python
 @app.route('/blog', methods = ['GET', 'POST'])
 ```
-Devam edelim. Kısaca client tarafından gelen request methodu GET ise example_request() fonksiyonumuz çalıştırılacak ve render_template('blog.html') ile birlikte "blog.html" dosyası "/blog" sayfasına requestte bulunan client'a sunulacak.
+Devam edelim. Kısaca client tarafından gelen request methodu GET ise ```example_request()``` fonksiyonumuz çalıştırılacak ve ```render_template('blog.html')``` ile birlikte "blog.html" dosyası "/blog" sayfasına requestte bulunan client'a sunulacak.
 
 Not: Eğer developer bir sayfaya sadece post requesti atılabilmesini sağlarsa ve biz o sayfaya bir GET requesti atarsak "Method Not Allowed" hatası ile karşılaşırız. Ve hemen altında da "The method is not allowed for the requested URL." böyle bir bildiri yazar. (Bu adres için bu method'a izin verilmiyor gibi çevirilebilir)
 
