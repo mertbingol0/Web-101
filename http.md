@@ -77,14 +77,49 @@ Not: Eğer developer bir sayfaya sadece post requesti atılabilmesini sağlarsa 
 
 #### POST on Client Side
 
-POST request'i, server'a bir veri göndermek istediğimizde kullandığımız request methodudur. Örneğin bir siteye fotoğraf yüklemek istersek, bu fotoğraf yükleme işlemi POST request'i ile yapılır. Sizler fotoğrafınızı yüklediğinizde, server'a "Sana bir fotoğraf gönderiyorum" diyorsunuz ve server'da o fotoğrafınızı alıp, gereken işlemi gerçekleştiriyor. Örneğin, verdiğiniz fotoğraf bir profil fotoğrafı olabilir ve bu profil fotoğrafını profilinize eklemek için bir takım işlemler gerçekleştirir. Tabii ki, post methodu sadece fotoğraf yükleme gibi basit işler haricinde, çok büyük şeyler içinde kullanılabilir.
+POST request'i, server'a bir veri göndermek istediğimizde kullandığımız request methodudur. Örneğin bir siteye fotoğraf yüklemek istersek, bu fotoğraf yükleme işlemi POST request'i ile yapılır. Sizler fotoğrafınızı yüklediğinizde, server'a "Sana bir fotoğraf gönderiyorum" diyorsunuz ve server'da o fotoğrafınızı alıp, gereken işlemi gerçekleştiriyor. Örneğin, verdiğiniz fotoğraf bir profil fotoğrafı olabilir ve bu profil fotoğrafını profilinize eklemek için bir takım işlemler gerçekleştirir. Tabii ki, post methodu sadece fotoğraf yükleme gibi basit işler haricinde, çok büyük şeyler içinde kullanılabilir. 
 
-Büyük işlere örnek olarak, bir kullanıcı sitenizin kayıt bölümündeki formları doldurduktan sonra girdiği bilgileri size gönderdiği anda, o veriler frontend tarafında JSON verilerine dönüştürülerek backend'e gönderilir. Ve backend bu verileri alıp kullanıcıyı veritabanına kaydeder. Yani yukarıda da dediğim gibi, server'a bir veri göndermemiz gerektiği durumlarda POST methodunu kullanmamız gerekir. Aşağıda örnek bir POST requesti verdim, ancak front-end bilgim olmadığından, mutlaka client tarafını terminal üzerinden uygulayacağım. Bu işin asli JS tarafında oluyor.
+Söz ettiğim fotoğraf yükleme işlemi için Instagram üzerinden bir örnek:
+
+<img src="https://github.com/mertbingol0/Web-TEchLEarn/blob/main/Screenshot%20from%202023-01-16%2001-06-53.png"></img>
+
+Büyük işlere örnek olarak, bir kullanıcı sitenizin kayıt bölümündeki formları doldurduktan sonra girdiği bilgileri size gönderdiği anda, o veriler frontend tarafında JSON verilerine dönüştürülerek backend'e gönderilir. Ve backend bu verileri alıp kullanıcıyı veritabanına kaydeder. Yani yukarıda da dediğim gibi, server'a bir veri göndermemiz gerektiği durumlarda POST methodunu kullanmamız gerekir. Aşağıda örnek bir POST requesti verdim, ancak front-end bilgim olmadığından, client tarafını terminal üzerinden uygulayacağım. Bu işin asli frontend developar'i tarafindan hallediliyor.
 
 ```
 curl -X POST -H "Content-Type: application/json" -d '{"name":"Mert","surname":"Bingol"}' http://194.233.166.90:8889/users/create
 ```
 
-Bu komut, "Content-Type" header'ını "application/json" olarak ayarlayarak, "name" ve "surname" alanlarını içeren bir JSON verisi gönderir. "Content-Type" header'ını "application/json" olarak ayarlar cunku gonderecegimiz data JSON tipindedir. (JSON'un ne oldugunu merak ediyorsaniz: https://blog.turhost.com/json-nedir-ve-ne-icin-kullanilir/). Backend tarafinda yazmis oldugum kod sayesinde burada gonderdigimiz veri belirttigim adresde goruntuleyebilmemizi sagliyor. Asagiya gorsel'i braiktim:
+Bu komut, "Content-Type" header'ını "application/json" olarak ayarlayarak, "name" ve "surname" alanlarını içeren bir JSON verisi gönderir. "Content-Type" header'ını "application/json" olarak ayarlar çünkü göndereceğimiz veri JSON türündedir. (https://blog.turhost.com/json-nedir-ve-ne-icin-kullanilir/) Backend tarafında yazdığım kod sayesinde burada gönderdiğimiz veriyi belirttiğim adreste görüntüleyebilmemizi sağlıyor. Aşağıya görseli ekledim:
+
+<img src="https://github.com/mertbingol0/Web-TEchLEarn/blob/main/Screenshot%20from%202023-01-16%2001-02-56.png"></img>
+
+#### POST on Server Side
+
+Gelelim işin backend kısmına. Burada, yukarıda yaptığımız işlemlerin arka tarafta ne gibi süreçlerden geçtiğine değineceğiz. İlk olarak bir JSON verisinin frontend tarafından nasıl alındığına değinelim. Fakat öncesinde tüm kodu vererek açıklamalarını yapayım ve ardından işlenen süreçlere adım adım devam ederiz.
+
+```python
+import json
+from flask import Flask, jsonify, request
+app = Flask(__name__)
+
+@app.route("/users/create", methods=["POST"])
+def create_users():
+    data = request.get_json()
+    with open("users.json", "w") as f:
+        json.dump(data, f)
+    return "Data received and saved"
+    
+@app.route("/list-users", methods=["GET"])
+def list_users():
+    with open('users.json') as json_file:
+        data = json.load(json_file)
+    return jsonify(data)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+```
+
+Klasik işlemleri atlayarak, asıl kısımlara değiniyorum. @app.route("/users/create", methods=["POST"]) Bu kısımda "/users/create" adında bir sayfa oluşturdum ve bu sayfaya sadece POST request'i atılabilmesini sağladım. Ardından "data" adında bir değişken oluşturup yukarıdaki örneğimizde bize gelen .json verisini backend tarafında yakalayıp "data" adlı değişkenime değer olarak atadım ve yakaladığım .json verisini "users.json" adlı dosyaya yazmasını söyledim. Son olarakta return ile "Data received and saved" mesajını bize gönderilen request'e response olarak döndürdüm.
 
 
+```@app.route("/list-users", methods=["GET"])``` Bu kısımda ise dikkat ederseniz ```/list-users``` adında bir sayfa oluşturdum ve bu sayfaya GET methodu ile request atılabilmesini sağladım. Hmm, "list-users" diyor... ve GET methodu kullanıyor... demek ki... ben burada kullanıcıların bir listesini görmek istemişim ve server'dan bir veri almak istediğim için GET methodunu kullanmışım. Sonrasında ```with open('users.json') as json_file:``` satırında "users.json" adında bir json dosyası oluşturdum ve ```as``` parametresi yardımıyla "users.json" dosyasını "json_file" olarak temsil etmesini söyledim. Son olarakda "users.json" dosyasını ```return jsonify(data)``` diyerek client tarafından gelen POST requestinin sonucunu client'a return ettim.
