@@ -83,7 +83,7 @@ Söz ettiğim fotoğraf yükleme işlemi için Instagram üzerinden bir örnek:
 
 <img src="https://github.com/mertbingol0/Web-TEchLEarn/blob/main/Screenshot%20from%202023-01-16%2001-06-53.png"></img>
 
-Büyük işlere örnek olarak, bir kullanıcı sitenizin kayıt bölümündeki formları doldurduktan sonra girdiği bilgileri size gönderdiği anda, o veriler frontend tarafında JSON verilerine dönüştürülerek backend'e gönderilir. Ve backend bu verileri alıp kullanıcıyı veritabanına kaydeder. Yani yukarıda da dediğim gibi, server'a bir veri göndermemiz gerektiği durumlarda POST methodunu kullanmamız gerekir. Aşağıda örnek bir POST requesti verdim, ancak front-end bilgim olmadığından, client tarafını terminal üzerinden uygulayacağım. Bu işin asli frontend developar'i tarafindan hallediliyor.
+Büyük işlere örnek olarak, bir kullanıcı sitenizin kayıt bölümündeki formları doldurduktan sonra girdiği bilgileri size gönderdiği anda, o veriler frontend tarafında JSON verilerine dönüştürülerek backend'e gönderilir. Ve backend bu verileri alıp kullanıcıyı veritabanına kaydeder. Yani yukarıda da dediğim gibi, server'a bir veri göndermemiz gerektiği durumlarda POST methodunu kullanmamız gerekir. Aşağıda örnek bir POST requesti verdim, ancak front-end bilgim olmadığından, client tarafını terminal üzerinden uygulayacağım. Bu işin asli frontend developar'i tarafindan hallediliyor (<a href="https://stackoverflow.com/questions/29775797/fetch-post-json-data">https://stackoverflow.com/questions/29775797/fetch-post-json-data</a>).
 
 ```
 curl -X POST -H "Content-Type: application/json" -d '{"name":"Mert","surname":"Bingol"}' http://194.233.166.90:8889/users/create
