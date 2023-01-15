@@ -75,6 +75,8 @@ Not: Eğer developer bir sayfaya sadece post requesti atılabilmesini sağlarsa 
 
 <img src="https://github.com/mertbingol0/Web-TEchLEarn/blob/main/Screenshot%20from%202023-01-14%2001-18-01.png"></img>
 
+<hr>
+
 #### POST on Client Side
 
 POST request'i, server'a bir veri göndermek istediğimizde kullandığımız request methodudur. Örneğin bir siteye fotoğraf yüklemek istersek, bu fotoğraf yükleme işlemi POST request'i ile yapılır. Sizler fotoğrafınızı yüklediğinizde, server'a "Sana bir fotoğraf gönderiyorum" diyorsunuz ve server'da o fotoğrafınızı alıp, gereken işlemi gerçekleştiriyor. Örneğin, verdiğiniz fotoğraf bir profil fotoğrafı olabilir ve bu profil fotoğrafını profilinize eklemek için bir takım işlemler gerçekleştirir. Tabii ki, post methodu sadece fotoğraf yükleme gibi basit işler haricinde, çok büyük şeyler içinde kullanılabilir. 
