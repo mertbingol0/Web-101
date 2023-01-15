@@ -80,3 +80,11 @@ Not: Eğer developer bir sayfaya sadece post requesti atılabilmesini sağlarsa 
 POST request'i, server'a bir veri göndermek istediğimizde kullandığımız request methodudur. Örneğin bir siteye fotoğraf yüklemek istersek, bu fotoğraf yükleme işlemi POST request'i ile yapılır. Sizler fotoğrafınızı yüklediğinizde, server'a "Sana bir fotoğraf gönderiyorum" diyorsunuz ve server'da o fotoğrafınızı alıp, gereken işlemi gerçekleştiriyor. Örneğin, verdiğiniz fotoğraf bir profil fotoğrafı olabilir ve bu profil fotoğrafını profilinize eklemek için bir takım işlemler gerçekleştirir. Tabii ki, post methodu sadece fotoğraf yükleme gibi basit işler haricinde, çok büyük şeyler içinde kullanılabilir.
 
 Büyük işlere örnek olarak, bir kullanıcı sitenizin kayıt bölümündeki formları doldurduktan sonra girdiği bilgileri size gönderdiği anda, o veriler frontend tarafında JSON verilerine dönüştürülerek backend'e gönderilir. Ve backend bu verileri alıp kullanıcıyı veritabanına kaydeder. Yani yukarıda da dediğim gibi, server'a bir veri göndermemiz gerektiği durumlarda POST methodunu kullanmamız gerekir. Aşağıda örnek bir POST requesti verdim, ancak front-end bilgim olmadığından, mutlaka client tarafını terminal üzerinden uygulayacağım. Bu işin asli JS tarafında oluyor.
+
+```
+curl -X POST -H "Content-Type: application/json" -d '{"name":"Mert","surname":"Bingol"}' http://194.233.166.90:8889/users/create
+```
+
+Bu komut, "Content-Type" header'ını "application/json" olarak ayarlayarak, "name" ve "surname" alanlarını içeren bir JSON verisi gönderir. "Content-Type" header'ını "application/json" olarak ayarlar cunku gonderecegimiz data JSON tipindedir. (JSON'un ne oldugunu merak ediyorsaniz: https://blog.turhost.com/json-nedir-ve-ne-icin-kullanilir/). Backend tarafinda yazmis oldugum kod sayesinde burada gonderdigimiz veri belirttigim adresde goruntuleyebilmemizi sagliyor. Asagiya gorsel'i braiktim:
+
+
