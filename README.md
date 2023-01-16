@@ -7,3 +7,4 @@ Bu repo'da A'dan Z'ye Web'in adim adim nasil calistigindan bahsettim. HTTP'den b
     - <a href= 'https://github.com/mertbingol0/Web-TEchLEarn/blob/main/http.md#get-on-server-side'>GET on Server Side</a>
     - <a href= 'https://github.com/mertbingol0/Web-TEchLEarn/edit/main/http.md#post-on-client-side'>POST on Client Side</a>
     - <a href= 'https://github.com/mertbingol0/Web-TEchLEarn/edit/main/http.md#post-on-server-side'>POST on Server Side</a>
+    - <a href= ' https://github.com/mertbingol0/Web-101/blob/main/http.md#put-delete-and-patch'>PUT, PATCH and DELETE</a>
