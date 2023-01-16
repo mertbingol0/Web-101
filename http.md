@@ -125,3 +125,5 @@ Klasik işlemleri atlayarak, asıl kısımlara değiniyorum. @app.route("/users/
 
 
 ```@app.route("/list-users", methods=["GET"])``` Bu kısımda ise dikkat ederseniz ```/list-users``` adında bir sayfa oluşturdum ve bu sayfaya GET methodu ile request atılabilmesini sağladım. Hmm, "list-users" diyor... ve GET methodu kullanıyor... demek ki... ben burada kullanıcıların bir listesini görmek istemişim ve server'dan bir veri almak istediğim için GET methodunu kullanmışım. Sonrasında ```with open('users.json') as json_file:``` satırında "users.json" adında bir json dosyası oluşturdum ve ```as``` parametresi yardımıyla "users.json" dosyasını "json_file" olarak temsil etmesini söyledim. Son olarakda "users.json" dosyasını ```return jsonify(data)``` diyerek client tarafından gelen POST requestinin sonucunu client'a return ettim.
+
+#### P
