@@ -136,7 +136,7 @@ PATCH metodu, PUT gibi çalışır. Tek farkı, PUT gibi genel bir veriyi değil
 
 DELETE metodu, adından da anlaşılacağı gibi, var olan verileri silmek için kullandığımız bir metoddur. Örneğin, sosyal medya hesaplarınızda paylaştığınız fotoğrafları sildiğinizde, sunucuya "ben bu fotoğrafı silmek istiyorum" diyebilmenizi sağlayan metod DELETE metodudur diyebiliriz. Aşağıda örnek bir DELETE isteğinin header'ını bıraktım.
 
-Evet birakamadim. Çoğu uygulamada her işlem için POST metodu kullanılmış illa biz yazacağı kendi kodumuzu. Bunun sebebini araştırırken şöyle bir şey buldum: <a href="https://www.buraksenyurt.com/post/Post-Gorunumlu-Put">https://www.buraksenyurt.com/post/Post-Gorunumlu-Put</a> burada anlatılanlara göre bazı durumlarda Firewall'lar sadece GET ve POST metodu ile yapılan istekleri kabul ediyorlar. Bu nadiren olsa da, Instagram gibi bir uygulamada da olabiliyor.
+Evet birakamadim. Çoğu uygulamada her işlem için POST metodu kullanılmış illa biz yazacağız kendi kodumuzu. Bunun sebebini araştırırken şöyle bir şey buldum: <a href="https://www.buraksenyurt.com/post/Post-Gorunumlu-Put">https://www.buraksenyurt.com/post/Post-Gorunumlu-Put</a> burada anlatılanlara göre bazı durumlarda Firewall'lar sadece GET ve POST metodu ile yapılan istekleri kabul ediyorlarmış.
 
 PUT, DELETE ve PATCH methodlarini pek aciklayabildigimi dusunmuyorum eger daha iyi bir sekilde aciklayabileceginizi dusunuyorsaniz lutfen bana ulasin ve bu kaynaga eklemelerimizi yapalim. 
 
